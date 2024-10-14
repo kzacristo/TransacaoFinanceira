@@ -1,0 +1,32 @@
+<div class="container-table" *ngIf="summary; else loading">
+    <div class="header">
+        <h1>Resumo Financeiro</h1>
+    </div>
+    <table>
+        <thead>
+            <tr>
+                <th>Total de Entradas</th>
+                <th>Total de Saídas</th>
+                <th>Saldo</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{{ summary.total_entradas }}</td>
+                <td>{{ summary.total_saidas }}</td>
+                <td>{{ summary.saldo }}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<!-- Template alternativo para exibir enquanto os dados estão sendo carregados -->
+<ng-template #loading>
+    <p>Carregando resumo financeiro...</p>
+</ng-template>
+
+<!-- Botões para navegação -->
+<div class="navigation-buttons">
+    <button class="nav-button" (click)="navigateTo('')">Voltar para Página Inicial</button>
+    <button class="nav-button" (click)="navigateTo('transactions/add-transaction')">Cadastrar Nova Transação</button>
+</div>

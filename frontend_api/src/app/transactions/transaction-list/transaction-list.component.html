@@ -1,0 +1,58 @@
+<div class="container">
+    <div class="search-container">
+        <div class="navigation-buttons">
+            <button class="nav-button" routerLink="/">Home</button>
+            <button class="nav-button" routerLink="summary">Resumo</button>
+            <button class="nav-button" routerLink="add-transaction">Cadastrar Nova Transação</button>
+        </div>
+        <h3>Buscar Transação</h3>
+
+        <!-- Formulário para buscar por ID -->
+        <form class="form-style-4" (ngSubmit)="buscarPorId()">
+            <label for="id"><span>Buscar por ID:</span></label>
+            <input type="number" [(ngModel)]="searchId" name="id" min="0" required />
+            <input type="submit" value="Buscar" />
+        </form>
+
+        <!-- Formulário para buscar por Tipo -->
+        <form class="form-style-4" (ngSubmit)="buscarPorTipo()">
+            <label for="tipo"><span>Buscar por Tipo:</span></label>
+            <select [(ngModel)]="searchTipo" name="tipo" required>
+                <option value="">Selecione um tipo</option>
+                <option value="Entrada">Entrada</option>
+                <option value="Saída">Saída</option>
+            </select>
+            <input type="submit" value="Buscar" />
+        </form>
+    </div>
+    <!-- Mensagem de erro, exibida se houver -->
+    <div *ngIf="errorMessage" class="error-message">
+        <p>{{ errorMessage }}</p>
+    </div>
+    <div class="container-table">
+
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Tipo</th>
+                    <th>Descrição</th>
+                    <th>Valor</th>
+                    <th>Data</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let transaction of transacoes;">
+                    <td>{{ transaction.id }}</td>
+                    <td>{{ transaction.tipo || 'N/A' }}</td>
+                    <td>{{ transaction.descricao || 'N/A' }}</td>
+                    <td>{{ transaction.valor || 'N/A' }}</td>
+                    <td>{{ transaction.data ? (transaction.data | date:'short') : 'N/A' }}</td>
+                    <td>
+                        <button (click)="deletarTransacao(transaction.id)" class="delete-button">X</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

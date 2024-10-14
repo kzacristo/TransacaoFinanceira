@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="search-container">
+    <form class="form-style-4" [formGroup]="transactionForm" (ngSubmit)="onSubmit()">
+      <label for="tipo">Tipo:</label>
+      <select formControlName="tipo" id="type">
+        <option value="entrada">Entrada</option>
+        <option value="saida">Saída</option>
+      </select>
+
+      <label for="descricao">Descrição:</label>
+      <input type="text" formControlName="descricao" id="description" placeholder="Digite a descrição">
+
+      <label for="valor">Valor:</label>
+      <input type="number" formControlName="valor" id="value" placeholder="Digite o valor">
+
+      <label for="data">Data:</label>
+      <input type="date" formControlName="data" id="date">
+
+      <button class="transaction-button" type="submit">Adicionar Transação</button>
+    </form>
+
+    <!-- Botões para navegação -->
+    <div class="navigation-buttons">
+      <button class="nav-button" (click)="navigateTo('')">Voltar para Página Inicial</button>
+      <button class="nav-button" (click)="navigateTo('transactions/summary')">Ir para Resumo</button>
+    </div>
+  </div>
+</div>
