@@ -106,5 +106,8 @@
 <p align="left">
         que o sistemas ira logar e realizar a captura do token
 </p>
+<p align="left">
+        Para deletar uma transação, basta clickar no botão em forma de X vermelho ao final da cada linha
+</p>
 </div>
 </h4>
