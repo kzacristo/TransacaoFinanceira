@@ -1,0 +1,14 @@
+<div class="container">
+    <div class="search-container">
+        <!-- Vincula o formulário ao formGroup loginForm -->
+        <form class="form-style-4" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+            <div class="mb-3">
+                <input type="hidden" id="email" formControlName="email" class="form-control" />
+            </div>
+            <div class="mb-3">
+                <input type="hidden" id="password" formControlName="password" class="form-control" />
+            </div>
+            <button type="submit" class="btn btn-primary">Login</button>
+        </form>
+    </div>
+</div>

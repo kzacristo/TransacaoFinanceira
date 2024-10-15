@@ -1,11 +1,12 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { AppRoutingModule } from './app.routes'; 
+import { AppRoutingModule } from './app.routes';
 import { TransactionListComponent } from './transactions/transaction-list/transaction-list.component';
 import { TransactionService } from './services/transaction.service';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { CommonModule} from '@angular/common';
+import { CommonModule } from '@angular/common';
+import { AuthInterceptor } from './interceptors/auth.interceptor';
 
 @NgModule({
     declarations: [
@@ -19,6 +20,10 @@ import { CommonModule} from '@angular/common';
         CommonModule,
         FormsModule
     ],
-    providers: [TransactionService],
+    providers: [{
+        provide: HTTP_INTERCEPTORS,
+        useClass: AuthInterceptor,
+        multi: true,
+    }, TransactionService],
 })
 export class AppModule { }
