@@ -100,5 +100,11 @@
         np serve
         
 </p>
+<p align="left">
+        Após esta com ambos os servidores rodando basta na pagina inicial clickar no botão de login
+</p>
+<p align="left">
+        que o sistemas ira logar e realizar a captura do token
+</p>
 </div>
 </h4>
